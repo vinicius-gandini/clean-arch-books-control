@@ -6,4 +6,7 @@ export const env = {
     port: process.env.APP_PORT ?? 3000,
     secret: process.env.APP_SECRET ?? '',
   },
+  mongodb: {
+    uri: process.env.MONGODB ?? '',
+  },
 };
