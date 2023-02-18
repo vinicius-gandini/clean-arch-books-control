@@ -1,8 +1,10 @@
-import { Router } from "express";
-// import apiRouter from "./routes/pokemon";
+import { Router } from 'express';
+
+import { authRouter } from './routes/auth';
 
 const router = Router();
 
-router.use('/api');
+router.use('/api', authRouter);
+// router.use('/api');
 
 export default router;

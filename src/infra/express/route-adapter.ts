@@ -18,7 +18,6 @@ export const expressRouteAdapter: Adapter =
 
       res.status(statusCode).json(data);
     } catch (error) {
-
       const defaultName = 'ServerError';
       const defaultMessage = 'Server Error';
 
