@@ -8,16 +8,20 @@ import {
 import {
   CreateBookRepository,
   DeleteBookRepository,
+  GetBookInfoRepository,
+  GetBooksRepository,
   UpdateBookRepository,
 } from '@/domain/repositories/books';
 import { Login } from '@/domain/services';
 import {
   CreateBookRepositoryImpl,
   CreateUserRepositoryImpl,
+  DeleteBookRepositoryImpl,
   FindUsersRepositoryImpl,
+  GetBookInfoRepositoryImpl,
+  GetBooksRepositoryImpl,
+  UpdateBookRepositoryImpl,
 } from '@/infra/mongodb/repositories';
-import { DeleteBookRepositoryImpl } from '@/infra/mongodb/repositories/books/delete-book';
-import { UpdateBookRepositoryImpl } from '@/infra/mongodb/repositories/books/update-book';
 
 import { ServiceKeys } from './keys';
 
@@ -46,4 +50,14 @@ container.registerSingleton<UpdateBookRepository>(
 container.registerSingleton<DeleteBookRepository>(
   ServiceKeys.DELETE_BOOK,
   DeleteBookRepositoryImpl,
+);
+
+container.registerSingleton<GetBooksRepository>(
+  ServiceKeys.GET_BOOK,
+  GetBooksRepositoryImpl,
+);
+
+container.registerSingleton<GetBookInfoRepository>(
+  ServiceKeys.GET_BOOK_INFO,
+  GetBookInfoRepositoryImpl,
 );
