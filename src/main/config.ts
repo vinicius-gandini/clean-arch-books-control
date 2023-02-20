@@ -9,4 +9,7 @@ export const env = {
   mongodb: {
     uri: process.env.MONGODB ?? '',
   },
+  bcrypt: {
+    salt: Number(process.env.SALT) ?? 10,
+  },
 };

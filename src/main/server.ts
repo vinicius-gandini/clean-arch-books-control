@@ -1,5 +1,6 @@
 import { app } from '@/infra/express/app';
 import { MongoDbConnection } from '@/infra/mongodb/connection';
+import '@/common/container';
 
 import { env } from './config';
 

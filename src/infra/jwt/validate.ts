@@ -14,11 +14,11 @@ export const validateJwt = (
     return res.status(401).json({ error: 'Token não fornecido' });
   }
 
+  // eslint-disable-next-line consistent-return
   jwt.verify(token, env.app.secret, (err) => {
     if (err) {
       return res.status(401).json({ error: err });
     }
-    return next();
   });
   return next();
 };
