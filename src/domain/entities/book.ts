@@ -12,3 +12,11 @@ export enum BookStatus {
   available = 'available',
   not_available = 'not_available',
 }
+
+export type EditBook = {
+  name?: string;
+  author?: string;
+  publisher?: string;
+  pages?: number;
+  status?: BookStatus;
+};
