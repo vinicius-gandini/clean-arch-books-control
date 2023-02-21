@@ -3,7 +3,7 @@ import {
   FindUsersByIdRepository,
   FindUsersByUsernameRepository,
   FindUsersRepository,
-} from '@/domain/repositories/users/find-user-id';
+} from '@/domain/repositories/users/';
 
 import { UsersModel } from '../../schemas';
 

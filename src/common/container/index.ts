@@ -13,12 +13,14 @@ import {
   RentBookRepository,
   UpdateBookRepository,
 } from '@/domain/repositories/books';
+import { GetAllUsersRepository } from '@/domain/repositories/users/get-all-users';
 import { Login } from '@/domain/services';
 import {
   CreateBookRepositoryImpl,
   CreateUserRepositoryImpl,
   DeleteBookRepositoryImpl,
   FindUsersRepositoryImpl,
+  GetAllUsersRepositoryImpl,
   GetBookInfoRepositoryImpl,
   GetBooksRepositoryImpl,
   UpdateBookRepositoryImpl,
@@ -32,6 +34,11 @@ container.registerSingleton<Login>(ServiceKeys.LOGIN, LoginService);
 container.registerSingleton<CreateUserRepository>(
   ServiceKeys.CREATE_USER,
   CreateUserRepositoryImpl,
+);
+
+container.registerSingleton<GetAllUsersRepository>(
+  ServiceKeys.GET_USER,
+  GetAllUsersRepositoryImpl,
 );
 
 container.registerSingleton<FindUsersRepository>(

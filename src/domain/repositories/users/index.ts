@@ -1,2 +1,2 @@
 export * from './create-user';
-export * from './find-user-id';
+export * from './find-user';
