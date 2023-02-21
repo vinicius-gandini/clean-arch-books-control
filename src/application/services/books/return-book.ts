@@ -8,7 +8,7 @@ import {
 } from '@/domain/repositories/books';
 
 @injectable()
-export class UpdateBookService implements UpdateBookRepository {
+export class ReturnBookService implements UpdateBookRepository {
   constructor(
     @inject(ServiceKeys.UPDATE_BOOK)
     private readonly updateBookRepository: UpdateBookRepository,
@@ -18,17 +18,21 @@ export class UpdateBookService implements UpdateBookRepository {
 
   async update(
     id: UpdateBookRepository.Params,
-    body: UpdateBookRepository.Body,
   ): Promise<UpdateBookRepository.Result> {
     const book = await this.getBookInfoRepository.getBookInfo(id);
 
-    if (book.status !== BookStatus.available) {
+    if (
+      [BookStatus.not_available, BookStatus.available].includes(book.status)
+    ) {
       throw new Error(
-        `Book not available for update. Please check the book status`,
+        `Book has already returned or it's not available. Please check the book status`,
       );
     }
-    const updatedBook = await this.updateBookRepository.update(id, body);
 
-    return updatedBook;
+    const returnedBook = await this.updateBookRepository.update(id, {
+      status: BookStatus.available,
+    });
+
+    return returnedBook;
   }
 }

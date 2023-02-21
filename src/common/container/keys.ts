@@ -7,4 +7,5 @@ export enum ServiceKeys {
   DELETE_BOOK = 'DELETE_BOOK',
   GET_BOOK = 'GET_BOOK',
   GET_BOOK_INFO = 'GET_BOOK_INFO',
+  RENT_BOOK = 'RENT_BOOK',
 }

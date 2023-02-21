@@ -4,6 +4,8 @@ import {
   CreateBookController,
   DeleteBookController,
   GetBooksController,
+  RentBookController,
+  ReturnBookController,
   UpdateBookController,
 } from '@/application/controllers/books';
 import { GetBookInfoController } from '@/application/controllers/books/get-book-info';
@@ -18,6 +20,8 @@ const updateBookController = new UpdateBookController();
 const deleteBookController = new DeleteBookController();
 const getBooksController = new GetBooksController();
 const getBookInfoController = new GetBookInfoController();
+const rentBookController = new RentBookController();
+const returnBookController = new ReturnBookController();
 
 apiRouter.get('/books', validateJwt, expressRouteAdapter(getBooksController));
 apiRouter.get(
@@ -39,6 +43,16 @@ apiRouter.delete(
   '/books/:id',
   validateJwt,
   expressRouteAdapter(deleteBookController),
+);
+apiRouter.post(
+  '/books/rent',
+  validateJwt,
+  expressRouteAdapter(rentBookController),
+);
+apiRouter.put(
+  '/books/return/:id',
+  validateJwt,
+  expressRouteAdapter(returnBookController),
 );
 
 export { apiRouter };

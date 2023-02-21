@@ -15,7 +15,7 @@ export class UpdateBookController implements Controller {
   >): Promise<HttpResponse<UpdateBookRepository.Result>> {
     const updateBookService = container.resolve(UpdateBookService);
 
-    const book = await updateBookService.update(params.id, body);
+    const book = await updateBookService.update({ id: params.id }, body);
 
     return new HttpResponse(book);
   }

@@ -7,6 +7,7 @@ export const validateJwt = (
   req: Request,
   res: Response,
   next: NextFunction,
+  // eslint-disable-next-line consistent-return
 ) => {
   const token = req.headers.authorization;
 
@@ -14,11 +15,10 @@ export const validateJwt = (
     return res.status(401).json({ error: 'Token não fornecido' });
   }
 
-  // eslint-disable-next-line consistent-return
   jwt.verify(token, env.app.secret, (err) => {
     if (err) {
       return res.status(401).json({ error: err });
     }
+    return next();
   });
-  return next();
 };

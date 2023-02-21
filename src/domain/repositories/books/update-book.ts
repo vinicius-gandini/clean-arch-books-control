@@ -2,7 +2,7 @@ import { EditBook } from '@/domain/entities';
 
 export interface UpdateBookRepository {
   update(
-    id: string,
+    id: UpdateBookRepository.Params,
     body: UpdateBookRepository.Body,
   ): Promise<UpdateBookRepository.Result>;
 }

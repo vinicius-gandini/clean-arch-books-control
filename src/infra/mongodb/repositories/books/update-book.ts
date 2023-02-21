@@ -6,8 +6,11 @@ import { BooksModel } from '@/infra/mongodb/schemas';
 
 @injectable()
 export class UpdateBookRepositoryImpl implements UpdateBookRepository {
-  async update(id: string, params: EditBook) {
-    const book = await BooksModel.findOneAndUpdate({ id }, params, {
+  async update(
+    id: UpdateBookRepository.Params,
+    params: UpdateBookRepository.Body,
+  ) {
+    const book = await BooksModel.findOneAndUpdate(id, params, {
       new: true,
     });
     const parsedBook = book?.toJSON();

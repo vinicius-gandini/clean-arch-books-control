@@ -10,6 +10,7 @@ import {
   DeleteBookRepository,
   GetBookInfoRepository,
   GetBooksRepository,
+  RentBookRepository,
   UpdateBookRepository,
 } from '@/domain/repositories/books';
 import { Login } from '@/domain/services';
@@ -22,6 +23,7 @@ import {
   GetBooksRepositoryImpl,
   UpdateBookRepositoryImpl,
 } from '@/infra/mongodb/repositories';
+import { RentBookRepositoryImpl } from '@/infra/mongodb/repositories/books/rent-book';
 
 import { ServiceKeys } from './keys';
 
@@ -60,4 +62,9 @@ container.registerSingleton<GetBooksRepository>(
 container.registerSingleton<GetBookInfoRepository>(
   ServiceKeys.GET_BOOK_INFO,
   GetBookInfoRepositoryImpl,
+);
+
+container.registerSingleton<RentBookRepository>(
+  ServiceKeys.RENT_BOOK,
+  RentBookRepositoryImpl,
 );
