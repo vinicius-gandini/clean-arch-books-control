@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  app:
+    container_name: soft-design-app
+    build:
+      context: .
+    depends_on:
+      - mongo
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/home/app:cached
+
+  mongo:
+    container_name: soft-design-mongo
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_DATABASE: softdesign
+    ports:
+      - 27017:27017

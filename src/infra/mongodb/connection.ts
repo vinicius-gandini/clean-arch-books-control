@@ -15,6 +15,7 @@ export class MongoDbConnection {
 
   async connect() {
     try {
+      mongoose.set('strictQuery', false);
       await mongoose.connect(env.mongodb.uri);
 
       console.log('MongoDB connected');
