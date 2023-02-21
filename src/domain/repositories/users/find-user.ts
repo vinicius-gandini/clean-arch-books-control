@@ -14,7 +14,7 @@ export namespace FindUsersByUsernameRepository {
     username: string;
   };
 
-  export type Result = User | null;
+  export type Result = Omit<User, 'id'> & {id?: string} | null;
 }
 
 export namespace FindUsersByIdRepository {
@@ -22,5 +22,5 @@ export namespace FindUsersByIdRepository {
     id: string;
   };
 
-  export type Result = User | null;
+  export type Result = Omit<User, 'id'> & {id?: string} | null;
 }

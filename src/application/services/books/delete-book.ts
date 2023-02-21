@@ -21,7 +21,7 @@ export class DeleteBookService implements DeleteBookRepository {
   ): Promise<DeleteBookRepository.Result> {
     const book = await this.getBookInfoRepository.getBookInfo(id);
 
-    if (book.status !== BookStatus.available) {
+    if (book?.status !== BookStatus.available) {
       throw new Error(
         `Book not available to delete. Please verify if the book have the available status`,
       );

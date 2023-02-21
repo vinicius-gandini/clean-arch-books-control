@@ -5,7 +5,7 @@ export interface CreateBookRepository {
 }
 
 export namespace CreateBookRepository {
-  export type Body = Book;
+  export type Body = Omit<Book, 'id'> & {id?: string};
 
   export type Result = any;
 }

@@ -42,6 +42,6 @@ export class CreateUserService implements CreateUserRepository {
       username,
     });
 
-    return { user };
+    return user;
   }
 }

@@ -22,7 +22,7 @@ export class RentBookService implements RentBookRepository {
   async rent(
     body: RentBookRepository.Body,
   ): Promise<RentBookRepository.Result> {
-    const { bookId, bookName, userId, userUsername } = body;
+    const { bookId, userId } = body;
 
     const book = await this.getBookInfoRepository.getBookInfo({ id: bookId });
 

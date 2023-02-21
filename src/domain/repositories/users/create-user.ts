@@ -5,7 +5,7 @@ export interface CreateUserRepository {
 }
 
 export namespace CreateUserRepository {
-  export type Body = User;
+  export type Body = Omit<User, 'id'> & {id?: string};
 
   export type Result = any;
 }
