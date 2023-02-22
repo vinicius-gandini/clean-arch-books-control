@@ -10,8 +10,8 @@ export class GetBooksService implements GetBooksRepository {
     private readonly getBooksRepository: GetBooksRepository,
   ) {}
 
-  async getBooks(): Promise<GetBooksRepository.Result> {
-    const books = await this.getBooksRepository.getBooks();
+  async getBooks(query: GetBooksRepository.Query): Promise<GetBooksRepository.Result> {
+    const books = await this.getBooksRepository.getBooks(query);
 
     return books;
   }

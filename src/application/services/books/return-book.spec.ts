@@ -50,7 +50,7 @@ describe('ReturnBook', () => {
     expect(returnedBook.status).toBe(BookStatus.available);
   })
 
-  it('Should not be able to return a book', async () => {
+  it('Should not be able to return a book that is not rented', async () => {
     const payload = {
       id: '1',
       name: "O Hobbit 2",
@@ -66,5 +66,20 @@ describe('ReturnBook', () => {
 
     expect(returnBookService.update({id: payload.id})).rejects.toThrow(new Error(`Book has already returned or it's not available. Please check the book status`))
 
+  })
+
+  it('Should not be able to return a book that is not found', async () => {
+    const payload = {
+      id: '1',
+      name: "O Hobbit 2",
+	    author: "J. R. R. Tolkien",
+	    publisher: "HarperCollins",
+	    pages: 336,
+      status: BookStatus.available
+    }
+
+    jest.spyOn(getBookInfoRepository, 'getBookInfo').mockImplementationOnce(async () => null)
+
+    expect(returnBookService.update({id: payload.id})).rejects.toThrow(new Error(`Book not found`))
   })
 });

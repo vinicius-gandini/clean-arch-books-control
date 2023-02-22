@@ -26,6 +26,7 @@ describe('CreateBook', () => {
 	    author: "J. R. R. Tolkien",
 	    publisher: "HarperCollins",
 	    pages: 336,
+      synopsis: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt augue sem, a accumsan velit placerat eget. Nulla tempor rhoncus bibendum. Ut nunc eros, tincidunt et neque vel, consequat vestibulum magna. Nulla sed interdum elit.",
       status: BookStatus.available
     }
 

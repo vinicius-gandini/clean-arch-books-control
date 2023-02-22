@@ -21,6 +21,10 @@ export class ReturnBookService implements UpdateBookRepository {
   ): Promise<UpdateBookRepository.Result> {
     const book = await this.getBookInfoRepository.getBookInfo(id);
 
+    if (!book) {
+      throw new Error(`Book not found`);
+    }
+
     if (
       [BookStatus.not_available, BookStatus.available].includes(book.status)
     ) {

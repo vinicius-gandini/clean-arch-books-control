@@ -6,10 +6,12 @@ import { GetBooksService } from '@/application/services/books/get-books';
 import { GetBooksRepository } from '@/domain/repositories';
 
 export class GetBooksController implements Controller {
-  async handle(): Promise<HttpResponse<GetBooksRepository.Result>> {
+  async handle({
+    query,
+  }: Controller.Request<GetBooksRepository.Query>): Promise<HttpResponse<GetBooksRepository.Result>> {
     const getBooksService = container.resolve(GetBooksService);
 
-    const books = await getBooksService.getBooks();
+    const books = await getBooksService.getBooks(query);
 
     return new HttpResponse(books);
   }

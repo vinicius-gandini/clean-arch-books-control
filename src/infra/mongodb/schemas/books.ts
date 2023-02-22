@@ -24,6 +24,10 @@ const BookSchema = new Schema({
     type: Number,
     required: true,
   },
+  synopsis: {
+    type: String,
+    required: true,
+  },
   status: {
     type: String,
     enum: [BookStatus.available, BookStatus.not_available, BookStatus.rented],

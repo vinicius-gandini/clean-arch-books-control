@@ -4,6 +4,7 @@ export type Book = {
   author: string;
   publisher: string;
   pages: number;
+  synopsis: string;
   status: BookStatus;
 };
 
@@ -18,5 +19,6 @@ export type EditBook = {
   author?: string;
   publisher?: string;
   pages?: number;
+  synopsis?: string;
   status?: BookStatus;
 };
